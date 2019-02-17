@@ -1,7 +1,9 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
+    <!-- left side menu -->
+    <v-navigation-drawer 
       v-model="drawer"
+      class="darkButNotBlack"
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
@@ -24,7 +26,10 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+
+    <!-- top side menu -->
     <v-toolbar
+      class="notQuiteBlack"
       :clipped-left="clipped"
       fixed
       app
@@ -56,11 +61,15 @@
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-content>
+
+    <!-- main content container -->
+    <v-content class="darkButNotBlack">
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
+
+    <!-- right side menu -->
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"
@@ -78,11 +87,13 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+
+    <!-- footer -->
     <v-footer
       :fixed="fixed"
       app
     >
-      <span>&copy; 2019</span>
+      <span> &copy; 2019</span>
     </v-footer>
   </v-app>
 </template>
@@ -99,17 +110,12 @@ export default {
           icon: 'apps',
           title: 'Welcome',
           to: '/'
-        },
-        {
-          icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Discord Hero'
     }
   }
 }

@@ -1,93 +1,98 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
+  <v-layout column justify-center align-center>
+    <v-flex xs12 sm8 md6>
+      <!-- logo -->
       <div class="text-xs-center">
-        <logo />
-        <vuetify-logo />
+        <DiscordHeroLogo/>
       </div>
+
+      <!-- content field -->
       <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
+        <v-card-title class="headline">Welcome to Discord Hero!</v-card-title>
         <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-          >
-            Nuxt GitHub
-          </a>
+          <p>Discord-hero (or d-hero for short) is an asynchronous, fully modular web application framework for humans allowing you to write applications that connect to Discord</p>
+          <p>Here you will find an overview of all the apps made with discord-hero:</p>
+          <hr class="my-1">
         </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            flat
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
+
+        <!-- flex grid for apps -->
+        <v-layout>
+          <v-flex>
+            <v-container fluid>
+              <v-layout row wrap>
+                <v-flex v-for="app in apps" :key="app.id" xs4 pa-3>
+                  <!-- makes while tile a link. builds url based on propperty -->
+                  <nuxt-link class="appTile" :to="'/apps/' + app.id">
+                    <v-card elevation="3">
+                      <v-img
+                        :src="`https://unsplash.it/150/300?image=${Math.floor(Math.random() * 100) + 1}`"
+                        height="200px"
+                      ></v-img>
+                      <v-card-title
+                        style="padding-top:10px;padding-bottom:3px;font-size:1.4em;"
+                      >{{ app.title}}</v-card-title>
+                      <hr class="my-1">
+                      <v-card-text style="padding-top:10px;">{{ app.subTitle}}</v-card-text>
+                    </v-card>
+                  </nuxt-link>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-flex>
+        </v-layout>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import DiscordHeroLogo from '~/components/DiscordHeroLogo.vue'
+import { setTimeout } from 'timers'
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+    DiscordHeroLogo
+  },
+  // fake ajax call
+  asyncData() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({
+          apps: [
+            {
+              id: '0001',
+              title: 'Awesome first app',
+              subTitle: "An app which simple just said 'first!'.",
+              Thumbnail: 'https://imgimgimg'
+            },
+            {
+              id: '0002',
+              title: 'Awesome second app',
+              subTitle: 'Almost as good as the first app.',
+              Thumbnail: 'https://imgimgimg'
+            },
+            {
+              id: '0003',
+              title: 'Awesome third app',
+              subTitle: 'Third is the word.',
+              Thumbnail: 'https://imgimgimg'
+            },
+            {
+              id: '0004',
+              title: 'Awesome fourth app',
+              subTitle: "Answers every question with '4'.",
+              Thumbnail: 'https://imgimgimg'
+            }
+          ]
+        })
+      }, 500)
+    })
   }
 }
 </script>
+
+<style scoped>
+a.appTile {
+  text-decoration: none;
+}
+</style>

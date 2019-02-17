@@ -20,3 +20,11 @@ $ yarn run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+
+## Additional references
+
+- [Discord branding (style)](https://discordapp.com/branding)
+- [Vuetify theming](https://vuetifyjs.com/en/framework/theme)
+- [Apollo module](https://github.com/nuxt-community/apollo-module)
+- [Available Icons (Material Design)](https://material.io/tools/icons/?search=apps&style=baseline0)
