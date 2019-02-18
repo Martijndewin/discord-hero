@@ -21,10 +21,15 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-
-## Additional references
-
+## References
+### Styling
 - [Discord branding (style)](https://discordapp.com/branding)
 - [Vuetify theming](https://vuetifyjs.com/en/framework/theme)
-- [Apollo module](https://github.com/nuxt-community/apollo-module)
 - [Available Icons (Material Design)](https://material.io/tools/icons/?search=apps&style=baseline0)
+### Formatting
+- [Airbnb CSS / Sass Styleguide](https://github.com/airbnb/css)
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+### Modules
+- [Apollo module](https://github.com/nuxt-community/apollo-module)
+### Commiting
+- [Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)

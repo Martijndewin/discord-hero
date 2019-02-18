@@ -2,9 +2,18 @@
   <v-layout>
     <v-flex>
       <v-card>
-        <v-card-title>
-          {{ apps.title }}
-        </v-card-title>
+        <v-toolbar>
+          <v-btn
+            icon
+            class="hidden-xs-only"
+            :to="'/'"
+          >
+            <v-icon>arrow_back</v-icon>
+          </v-btn>
+          <v-toolbar-title>
+            {{ apps.title }}
+          </v-toolbar-title>
+        </v-toolbar>
         <v-card-text>
           {{ apps.subTitle }}
         </v-card-text>

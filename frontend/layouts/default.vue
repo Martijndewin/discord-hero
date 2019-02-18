@@ -1,11 +1,11 @@
 <template>
   <v-app dark>
     <!-- left side menu -->
-    <v-navigation-drawer 
+    <v-navigation-drawer
       v-model="drawer"
-      class="darkButNotBlack"
       :mini-variant="miniVariant"
       :clipped="clipped"
+      class="darkButNotBlack"
       fixed
       app
     >
@@ -18,7 +18,9 @@
           exact
         >
           <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>
+              {{ item.icon }}
+            </v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title v-text="item.title" />
@@ -34,31 +36,32 @@
       fixed
       app
     >
-      <v-toolbar-side-icon @click="drawer = !drawer" />
+      <!-- <v-toolbar-side-icon @click="drawer = !drawer" /> -->
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
       >
         <v-icon>{{ `chevron_${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-btn
+      <!-- <v-btn
         icon
         @click.stop="clipped = !clipped"
       >
         <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
+      </v-btn> -->
+      <!-- <v-btn
         icon
         @click.stop="fixed = !fixed"
       >
         <v-icon>remove</v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-toolbar-title v-text="title" />
+      <v-spacer />
       <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
       >
-        <v-icon>menu</v-icon>
+        <v-icon>share</v-icon>
       </v-btn>
     </v-toolbar>
 
@@ -93,7 +96,7 @@
       :fixed="fixed"
       app
     >
-      <span> &copy; 2019</span>
+      <span>&copy; 2019</span>
     </v-footer>
   </v-app>
 </template>
@@ -102,9 +105,9 @@
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      clipped: true,
+      drawer: true,
+      fixed: true,
       items: [
         {
           icon: 'apps',
@@ -112,7 +115,7 @@ export default {
           to: '/'
         }
       ],
-      miniVariant: false,
+      miniVariant: true,
       right: true,
       rightDrawer: false,
       title: 'Discord Hero'
